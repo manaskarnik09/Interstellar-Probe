@@ -1,2 +1,2 @@
 # Interstellar Probe Trajectory Using PyKep
-This repository contains a Lambert solver for an Interstellar Probe to the heliopause, which I did as my Master's thesis using PyKep. It has an Earth-Jupiter, Jupiter-Heliopause, and Earth-Venus, Venus-Jupiter, Jupiter-Heliopause Lambert solver. 
+This repository contains a Lambert solver for an Interstellar Probe to the heliopause, which I did as my Master's thesis using PyKep. It has an Earth-Jupiter, Jupiter-Heliopause, and Earth-Venus, Venus-Jupiter, Jupiter-Heliopause Lambert solver. In addition to this, it also has the Pygmo validation code and a patched Earth-Venus-Jupiter trajectory in GMAT with snippets of Earth-Jupiter trajectories.  
