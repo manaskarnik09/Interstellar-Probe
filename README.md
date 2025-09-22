@@ -61,13 +61,14 @@ Two trajectory families were explored:
 </p>
 
 <p align="center">
-  <img src="results/Earth-Jupiter_C3_98.png"  height="300px">
-  <img src="results/Earth-Jupiter_C3_90.png"  height="300px">
-  <img src="results/Earth-Jupiter_C3_81.png"  height="300px">
+  <img src="results/Earth-Jupiter_C3_98.png"  height="400px">
+  <img src="results/Earth-Jupiter_C3_90.png"  height="350px">
+  <img src="results/Earth-Jupiter_C3_81.png"  height="400px">
 </p>
 
 <p align = "center">
-<img src="results/Earth-Venus-Jupiter_C3_7.png"   height="300px">
+ <img src="results/Earth-Venus-Jupiter_C3_7.png"      height="300px">
+ <img src="results/Earth-Venus-Jupiter_patched.png"   height="300px">
 </p>
 
 ---
