@@ -14,6 +14,7 @@ Design a trajectory for a probe to exit the heliosphere (90–200 AU) using plan
 Two trajectory families were explored:
 1. **Earth → Jupiter** direct flyby  
 2. **Earth → Venus → Jupiter** sequence
+3. **Earth → Venus → Earth → Jupiter** Sequence
 
 ---
 
@@ -29,7 +30,7 @@ Two trajectory families were explored:
 
 ---
 
-## Results
+## 📊 Results
 - **Launch:** 2045-05-08 (C3 = 90.52 km²/s²)  
 - **Jupiter flyby:** 2046-12-18, turning angle = 56.72°, v∞ = 8.99 km/s  
 - **Exit speed after Jupiter:** 20.12 km/s  
@@ -42,36 +43,37 @@ Two trajectory families were explored:
 ---
 
 ## 📂 Repository Structure
-├── notebooks/ # Jupyter notebooks with full calculations
-├── gmat_scripts/ # GMAT files for trajectory validation
-├── results/ # Plots and trajectory data
-├── requirements.txt # Dependencies for Python environment
-└── README.md # Project overview (this file)
+PyGMO results/ # Results of delta v optimization of Earth-Venus-Jupiter trajectories
+notebooks/ # Jupyter notebooks with full calculations
+gmat_scripts/ # GMAT files for trajectory validation
+results/ # Plots and trajectory data
+requirements.txt # Dependencies for Python environment
+README.md # Project overview (this file)
 
 
 ---
 
-## Example Plots
+## 📸 Example Plots
 
 <p align="center">
-  <img src="results/trajectory_plot.png" width="500">
+  <img src="results/Earth-Jupiter_C3_138.png" width="500">
 </p>
 
 ---
 
-## Future Work
+## 🚀 Future Work
 - Complete **optimized trajectory** to the Heliopause/ISM using models  
 
 ---
 
-## References
+## 📖 References
 - Cassini Trajectory & New Horizons Validation  
 - JPL Horizons Data for planetary positions  
 - ESA PyKEP & GMAT documentation  
 
 ---
 
-## Author
+## 👤 Author
 **Manas Karnik**  
 M.Sc. Space Exploration Systems, University of Leicester (2024–2025)  
 - [LinkedIn](https://www.linkedin.com/in/manaskarnik)  
