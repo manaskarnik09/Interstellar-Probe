@@ -55,11 +55,8 @@ README.md # Project overview (this file)
 
 ## 📸 Example Plots
 
-<p align="left">
+<p align="centre">
   <img src="results/Earth-Jupiter_C3_138.png" width="500">
-</p>
-
-<p align="right">
   <img src="results/Earth-Jupiter_C3_133.png" width="500">
 </p>
 
