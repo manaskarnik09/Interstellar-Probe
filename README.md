@@ -43,12 +43,13 @@ Two trajectory families were explored:
 ---
 
 ## 📂 Repository Structure
-|-----PyGMO results/ # Results of delta v optimization of Earth-Venus-Jupiter trajectories
-|-----notebooks/ # Jupyter notebooks with full calculations
-|-----gmat_scripts/ # GMAT files for trajectory validation
-|-----results/ # Plots and trajectory data
-|-----requirements.txt # Dependencies for Python environment
-|-----README.md # Project overview (this file)
+Interstellar-Probe/
+│
+├── notebooks/         # Jupyter notebooks for trajectory design & analysis
+├── scripts/           # Python scripts for Lambert arcs, flyby dynamics
+├── results/           # Plots, output data, mission timelines
+├── requirements.txt   # Python dependencies
+└── README.md          # Project overview (this file)
 
 
 ---
@@ -122,3 +123,5 @@ Clone and install dependencies:
 git clone https://github.com/manaskarnik09/Interstellar-Probe
 cd Interstellar-Probe
 pip install -r requirements.txt
+jupyter notebook notebooks/Jupiter_Optimal_Trajectories.ipynb
+
