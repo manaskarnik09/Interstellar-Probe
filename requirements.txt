@@ -1,0 +1,7 @@
+numpy
+scipy
+matplotlib
+jupyter
+pykep
+pygmo
+pygmo plugins non-free
