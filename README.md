@@ -43,14 +43,13 @@ Two trajectory families were explored:
 ---
 
 ## 📂 Repository Structure
-Interstellar-Probe/
+Interstellar-Probe/<br>
 │
-<br>
-├── notebooks/         # Jupyter notebooks for trajectory design & analysis
-├── scripts/           # Python scripts for Lambert arcs, flyby dynamics
-├── results/           # Plots, output data, mission timelines
-├── requirements.txt   # Python dependencies
-└── README.md          # Project overview (this file)
+├── notebooks/         # Jupyter notebooks for trajectory design & analysis<br>
+├── scripts/           # Python scripts for Lambert arcs, flyby dynamics<br>
+├── results/           # Plots, output data, mission timelines<br>
+├── requirements.txt   # Python dependencies<br>
+└── README.md          # Project overview (this file)<br>
 
 
 ---
