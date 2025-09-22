@@ -70,9 +70,12 @@ Two trajectory families were explored:
 **EARTH → VENUS → JUPITER**
 <p align = "center">
  <img src="results/Earth-Venus-Jupiter_C3_7.png"      height="400px">
- <img src="results/Earth-Venus-Jupiter_patched.png"   height="400px">
 </p>
 
+**EARTH → VENUS → JUPITER PATCHED**
+<p align = "center"> 
+ <img src="results/Earth-Venus-Jupiter_patched.png"   height="400px">
+</p>
 ---
 
 ## 🚀 Future Work
