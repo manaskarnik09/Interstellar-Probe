@@ -11,7 +11,7 @@ This project demonstrates advanced astrodynamics techniques, including **Lambert
 
 ## 🌌 Problem Statement
 Design a trajectory for a probe to exit the heliosphere (90–200 AU) using planetary flybys.  
-Two trajectory families were explored:
+Three trajectory families were explored:
 1. **Earth → Jupiter** direct flyby  
 2. **Earth → Venus → Jupiter** sequence
 3. **Earth → Venus → Earth → Jupiter** Sequence
@@ -96,7 +96,9 @@ Interstellar-Probe/<br>
 ---
 
 ## 🚀 Future Work
-- Complete **optimized trajectory** to the Heliopause/ISM using models  
+- Complete **optimized trajectory** to the Heliopause/ISM using models.
+- Investigate the difference between the Pykep and GMAT models.
+- Get actual delta v values for DSM/TCMs.  
 
 ---
 
