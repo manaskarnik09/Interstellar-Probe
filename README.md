@@ -53,12 +53,14 @@ Two trajectory families were explored:
 
 ---
 
-## 📸 Example Plots
+## 📸 Plots
 **EARTH → JUPITER (C3>100)**
 <p align="center">
   <img src="results/Earth-Jupiter_C3_138.png" height="300px">
   <img src="results/Earth-Jupiter_C3_133.png" height="300px">
 </p>
+
+<br>
 
 **EARTH → JUPITER (C3<100)**
 <p align="center">
@@ -67,17 +69,23 @@ Two trajectory families were explored:
   <img src="results/Earth-Jupiter_C3_81.png"  height="350px">
 </p>
 
+<br>
+
 **EARTH → VENUS**
 <p align = "center">
  <img src="results/Earth-Venus-Jupiter_C3_7.png"      height="400px"><br>
   <em>An Earth-Venus Lambert arc in GMAT</em>
 </p>
 
+<br>
+
 **EARTH → VENUS → JUPITER PATCHED**
 <p align = "center"> 
  <img src="results/Earth-Venus-Jupiter_patched.png"   height="500px"><br>
   <em>The Original Earth-Venus trajectory patched with a Venus Jupiter trajectory to give a complete Earth-Venus-Jupiter trajectory</em>
 </p>
+
+<br>
 
 **EARTH → JUPITER → HELIOPAUSE**
 <p align = "center"> 
