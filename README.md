@@ -54,18 +54,20 @@ Two trajectory families were explored:
 ---
 
 ## 📸 Example Plots
-
+**EARTH → JUPITER (C3>100)**
 <p align="center">
   <img src="results/Earth-Jupiter_C3_138.png" height="300px">
   <img src="results/Earth-Jupiter_C3_133.png" height="300px">
 </p>
 
+**EARTH → JUPITER (C3<100)**
 <p align="center">
   <img src="results/Earth-Jupiter_C3_98.png"  height="350px">
   <img src="results/Earth-Jupiter_C3_90.png"  height="350px">
   <img src="results/Earth-Jupiter_C3_81.png"  height="350px">
 </p>
 
+**EARTH → VENUS → JUPITER**
 <p align = "center">
  <img src="results/Earth-Venus-Jupiter_C3_7.png"      height="400px">
  <img src="results/Earth-Venus-Jupiter_patched.png"   height="400px">
