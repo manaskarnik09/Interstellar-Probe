@@ -74,7 +74,7 @@ Two trajectory families were explored:
 
 **EARTH → VENUS → JUPITER PATCHED**
 <p align = "center"> 
- <img src="results/Earth-Venus-Jupiter_patched.png"   height="400px">
+ <img src="results/Earth-Venus-Jupiter_patched.png"   height="500px">
 </p>
 ---
 
