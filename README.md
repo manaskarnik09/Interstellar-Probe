@@ -122,6 +122,13 @@ Clone and install dependencies:
 ```bash
 git clone https://github.com/manaskarnik09/Interstellar-Probe
 cd Interstellar-Probe
-pip install -r requirements.txt
-jupyter notebook notebooks/Jupiter_Optimal_Trajectories.ipynb
+conda create -n PyKep python=3.10 # Only for the first time
+conda activate PyKep
+conda install pykep
+conda install pygmo
+conda install pygmo plugins non_free
+conda install jupyter notebook
+conda install matplotlib
+jupyter notebook
+Open and run notebook from the /notebook folder eg: Jupiter Optimal Trajectories.ipynb
 
