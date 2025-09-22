@@ -1,0 +1,253 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2025-06-05 16:20:49
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft TURTLE;
+GMAT TURTLE.DateFormat = UTCGregorian;
+GMAT TURTLE.Epoch = '18 Feb 2043 00:00:00.000';
+GMAT TURTLE.CoordinateSystem = SunMJ2000Ec;
+GMAT TURTLE.DisplayStateType = Keplerian;
+GMAT TURTLE.SMA = 622721025.4019996;
+GMAT TURTLE.ECC = 0.7633999999999999;
+GMAT TURTLE.INC = 1.410000000000052;
+GMAT TURTLE.RAAN = 328.506;
+GMAT TURTLE.AOP = 187.1695999999998;
+GMAT TURTLE.TA = 357.41;
+GMAT TURTLE.DryMass = 850;
+GMAT TURTLE.Cd = 2.2;
+GMAT TURTLE.Cr = 1.8;
+GMAT TURTLE.DragArea = 15;
+GMAT TURTLE.SRPArea = 1;
+GMAT TURTLE.SPADDragScaleFactor = 1;
+GMAT TURTLE.SPADSRPScaleFactor = 1;
+GMAT TURTLE.AtmosDensityScaleFactor = 1;
+GMAT TURTLE.ExtendedMassPropertiesModel = 'None';
+GMAT TURTLE.NAIFId = -10012001;
+GMAT TURTLE.NAIFIdReferenceFrame = -9012001;
+GMAT TURTLE.OrbitColor = Red;
+GMAT TURTLE.TargetColor = Teal;
+GMAT TURTLE.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT TURTLE.CdSigma = 1e+70;
+GMAT TURTLE.CrSigma = 1e+70;
+GMAT TURTLE.Id = 'SatId';
+GMAT TURTLE.Attitude = CoordinateSystemFixed;
+GMAT TURTLE.SPADSRPInterpolationMethod = Bilinear;
+GMAT TURTLE.SPADSRPScaleFactorSigma = 1e+70;
+GMAT TURTLE.SPADDragInterpolationMethod = Bilinear;
+GMAT TURTLE.SPADDragScaleFactorSigma = 1e+70;
+GMAT TURTLE.AtmosDensityScaleFactorSigma = 1e+70;
+GMAT TURTLE.ModelFile = 'aura.3ds';
+GMAT TURTLE.ModelOffsetX = 0;
+GMAT TURTLE.ModelOffsetY = 0;
+GMAT TURTLE.ModelOffsetZ = 0;
+GMAT TURTLE.ModelRotationX = 0;
+GMAT TURTLE.ModelRotationY = 0;
+GMAT TURTLE.ModelRotationZ = 0;
+GMAT TURTLE.ModelScale = 1;
+GMAT TURTLE.AttitudeDisplayStateType = 'Quaternion';
+GMAT TURTLE.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT TURTLE.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT TURTLE.EulerAngleSequence = '321';
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+GMAT DefaultProp_ForceModel.CentralBody = Sun;
+GMAT DefaultProp_ForceModel.PointMasses = {Earth, Jupiter, Sun};
+GMAT DefaultProp_ForceModel.Drag = None;
+GMAT DefaultProp_ForceModel.SRP = Off;
+GMAT DefaultProp_ForceModel.RelativisticCorrection = Off;
+GMAT DefaultProp_ForceModel.ErrorControl = RSSStep;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+GMAT DefaultProp.FM = DefaultProp_ForceModel;
+GMAT DefaultProp.Type = RungeKutta89;
+GMAT DefaultProp.InitialStepSize = 6;
+GMAT DefaultProp.Accuracy = 9.999999999999999e-12;
+GMAT DefaultProp.MinStep = 0.001;
+GMAT DefaultProp.MaxStep = 2700;
+GMAT DefaultProp.MaxStepAttempts = 50;
+GMAT DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SunMJ2000Ec;
+GMAT SunMJ2000Ec.Origin = Sun;
+GMAT SunMJ2000Ec.Axes = MJ2000Ec;
+
+Create CoordinateSystem JupiterInertial;
+GMAT JupiterInertial.Origin = Jupiter;
+GMAT JupiterInertial.Axes = BodyInertial;
+
+Create CoordinateSystem SunMJ2000Eq;
+GMAT SunMJ2000Eq.Origin = Sun;
+GMAT SunMJ2000Eq.Axes = MJ2000Eq;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView SunCenteredFrame;
+GMAT SunCenteredFrame.SolverIterations = Current;
+GMAT SunCenteredFrame.UpperLeft = [ 0.4923529411764706 0 ];
+GMAT SunCenteredFrame.Size = [ 0.4805882352941176 0.6523809523809524 ];
+GMAT SunCenteredFrame.RelativeZOrder = 279;
+GMAT SunCenteredFrame.Maximized = false;
+GMAT SunCenteredFrame.Add = {TURTLE, Earth, Jupiter, Sun};
+GMAT SunCenteredFrame.CoordinateSystem = SunMJ2000Ec;
+GMAT SunCenteredFrame.DrawObject = [ true true true true ];
+GMAT SunCenteredFrame.DataCollectFrequency = 1;
+GMAT SunCenteredFrame.UpdatePlotFrequency = 50;
+GMAT SunCenteredFrame.NumPointsToRedraw = 0;
+GMAT SunCenteredFrame.ShowPlot = true;
+GMAT SunCenteredFrame.MaxPlotPoints = 20000;
+GMAT SunCenteredFrame.ShowLabels = true;
+GMAT SunCenteredFrame.ViewPointReference = Sun;
+GMAT SunCenteredFrame.ViewPointVector = [ 0 0 1490000000 ];
+GMAT SunCenteredFrame.ViewDirection = Sun;
+GMAT SunCenteredFrame.ViewScaleFactor = 1;
+GMAT SunCenteredFrame.ViewUpCoordinateSystem = SunMJ2000Ec;
+GMAT SunCenteredFrame.ViewUpAxis = Z;
+GMAT SunCenteredFrame.EclipticPlane = Off;
+GMAT SunCenteredFrame.XYPlane = Off;
+GMAT SunCenteredFrame.WireFrame = Off;
+GMAT SunCenteredFrame.Axes = Off;
+GMAT SunCenteredFrame.Grid = Off;
+GMAT SunCenteredFrame.SunLine = Off;
+GMAT SunCenteredFrame.UseInitialView = On;
+GMAT SunCenteredFrame.StarCount = 5000;
+GMAT SunCenteredFrame.EnableStars = On;
+GMAT SunCenteredFrame.EnableConstellations = Off;
+
+Create OrbitView JupiterView;
+GMAT JupiterView.SolverIterations = Current;
+GMAT JupiterView.UpperLeft = [ 0.07058823529411765 0.2869047619047619 ];
+GMAT JupiterView.Size = [ 0.5 0.6595238095238095 ];
+GMAT JupiterView.RelativeZOrder = 145;
+GMAT JupiterView.Maximized = false;
+GMAT JupiterView.Add = {TURTLE, Earth, Jupiter, Sun};
+GMAT JupiterView.CoordinateSystem = JupiterInertial;
+GMAT JupiterView.DrawObject = [ true true true true ];
+GMAT JupiterView.DataCollectFrequency = 1;
+GMAT JupiterView.UpdatePlotFrequency = 50;
+GMAT JupiterView.NumPointsToRedraw = 0;
+GMAT JupiterView.ShowPlot = false;
+GMAT JupiterView.MaxPlotPoints = 20000;
+GMAT JupiterView.ShowLabels = true;
+GMAT JupiterView.ViewPointReference = Jupiter;
+GMAT JupiterView.ViewPointVector = [ 0 -300000 0 ];
+GMAT JupiterView.ViewDirection = Jupiter;
+GMAT JupiterView.ViewScaleFactor = 4;
+GMAT JupiterView.ViewUpCoordinateSystem = JupiterInertial;
+GMAT JupiterView.ViewUpAxis = Z;
+GMAT JupiterView.EclipticPlane = Off;
+GMAT JupiterView.XYPlane = Off;
+GMAT JupiterView.WireFrame = Off;
+GMAT JupiterView.Axes = On;
+GMAT JupiterView.Grid = Off;
+GMAT JupiterView.SunLine = Off;
+GMAT JupiterView.UseInitialView = On;
+GMAT JupiterView.StarCount = 5000;
+GMAT JupiterView.EnableStars = On;
+GMAT JupiterView.EnableConstellations = Off;
+
+Create OpenFramesInterface OpenFrames1;
+GMAT OpenFrames1.SolverIterations = Current;
+GMAT OpenFrames1.UpperLeft = [ 0.1294117647058824 0.15 ];
+GMAT OpenFrames1.Size = [ 0.5929411764705882 0.5857142857142857 ];
+GMAT OpenFrames1.RelativeZOrder = 130;
+GMAT OpenFrames1.Maximized = false;
+GMAT OpenFrames1.Add = {TURTLE, Earth, Jupiter, Sun, Mars};
+GMAT OpenFrames1.View = {NewView2};
+GMAT OpenFrames1.CoordinateSystem = SunMJ2000Ec;
+GMAT OpenFrames1.DrawObject = [ true true true true true ];
+GMAT OpenFrames1.DrawTrajectory = [ true true true true true ];
+GMAT OpenFrames1.DrawAxes = [ false false false false false ];
+GMAT OpenFrames1.DrawXYPlane = [ false false false false false ];
+GMAT OpenFrames1.DrawLabel = [ true true true true true ];
+GMAT OpenFrames1.DrawUsePropLabel = [ false false false false false ];
+GMAT OpenFrames1.DrawCenterPoint = [ true false false false false ];
+GMAT OpenFrames1.DrawEndPoints = [ true false false false false ];
+GMAT OpenFrames1.DrawVelocity = [ false false false false false ];
+GMAT OpenFrames1.DrawGrid = [ false false false false false ];
+GMAT OpenFrames1.DrawLineWidth = [ 2 2 2 2 2 ];
+GMAT OpenFrames1.DrawMarkerSize = [ 10 10 10 10 10 ];
+GMAT OpenFrames1.DrawFontSize = [ 14 14 14 14 14 ];
+GMAT OpenFrames1.Axes = On;
+GMAT OpenFrames1.AxesLength = 12756.2726;
+GMAT OpenFrames1.AxesLabels = On;
+GMAT OpenFrames1.FrameLabel = Off;
+GMAT OpenFrames1.XYPlane = On;
+GMAT OpenFrames1.EclipticPlane = Off;
+GMAT OpenFrames1.EnableStars = On;
+GMAT OpenFrames1.StarCatalog = 'inp_StarsHYGv3.txt';
+GMAT OpenFrames1.StarCount = 40000;
+GMAT OpenFrames1.MinStarMag = -2;
+GMAT OpenFrames1.MaxStarMag = 6;
+GMAT OpenFrames1.MinStarPixels = 1;
+GMAT OpenFrames1.MaxStarPixels = 10;
+GMAT OpenFrames1.MinStarDimRatio = 0.5;
+GMAT OpenFrames1.ShowPlot = false;
+GMAT OpenFrames1.ShowToolbar = true;
+GMAT OpenFrames1.SolverIterLastN = 1;
+GMAT OpenFrames1.ShowVR = false;
+GMAT OpenFrames1.PlaybackTimeScale = 3600;
+GMAT OpenFrames1.MultisampleAntiAliasing = On;
+GMAT OpenFrames1.MSAASamples = 2;
+GMAT OpenFrames1.DrawFontPosition = {'Top-Right', 'Top-Right', 'Top-Right', 'Top-Right', 'Top-Right'};
+
+%----------------------------------------
+%---------- User Objects
+%----------------------------------------
+
+Create OpenFramesView NewView1;
+GMAT NewView1.ViewFrame = CoordinateSystem;
+GMAT NewView1.ViewTrajectory = Off;
+GMAT NewView1.InertialFrame = Off;
+GMAT NewView1.SetDefaultLocation = Off;
+GMAT NewView1.SetCurrentLocation = On;
+GMAT NewView1.CurrentEye = [ -16161850112833.41 16160568887146.45 25009851310510.92 ];
+GMAT NewView1.CurrentCenter = [ -0.001953125 0 -0.00390625 ];
+GMAT NewView1.CurrentUp = [ 0.5258407466673316 0.8278936931778466 -0.1951500498095987 ];
+GMAT NewView1.FOVy = 45;
+
+Create OpenFramesView NewView2;
+GMAT NewView2.ViewFrame = CoordinateSystem;
+GMAT NewView2.ViewTrajectory = Off;
+GMAT NewView2.InertialFrame = Off;
+GMAT NewView2.SetDefaultLocation = Off;
+GMAT NewView2.SetCurrentLocation = On;
+GMAT NewView2.CurrentEye = [ 344775321.631519 800495981.2576728 2170842977.415518 ];
+GMAT NewView2.CurrentCenter = [ 350407572.5736478 -603861608.5664377 -65984869.26227427 ];
+GMAT NewView2.CurrentUp = [ -0.2773457341173141 -0.8140075535365827 0.5103636414874361 ];
+GMAT NewView2.FOVy = 45;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate DefaultProp(TURTLE) {TURTLE.Jupiter.Periapsis, OrbitColor = [255 0 0]};
