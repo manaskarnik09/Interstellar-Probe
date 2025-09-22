@@ -67,19 +67,22 @@ Two trajectory families were explored:
   <img src="results/Earth-Jupiter_C3_81.png"  height="350px">
 </p>
 
-**EARTH → VENUS → JUPITER**
+**EARTH → VENUS**
 <p align = "center">
- <img src="results/Earth-Venus-Jupiter_C3_7.png"      height="400px">
+ <img src="results/Earth-Venus-Jupiter_C3_7.png"      height="400px"><br>
+  <em>An Earth-Venus Lambert arc in GMAT</em>
 </p>
 
 **EARTH → VENUS → JUPITER PATCHED**
 <p align = "center"> 
- <img src="results/Earth-Venus-Jupiter_patched.png"   height="500px">
+ <img src="results/Earth-Venus-Jupiter_patched.png"   height="500px"><br>
+  <em>The Original Earth-Venus trajectory patched with a Venus Jupiter trajectory to give a complete Earth-Venus-Jupiter trajectory</em>
 </p>
 
-** EARTH → JUPITER → HELIOPAUSE **
+**EARTH → JUPITER → HELIOPAUSE**
 <p align = "center"> 
- <img src="results/Earth-Jupiter-Heliopause.png"   height="300px">
+ <img src="results/Earth-Jupiter-Heliopause.png"   height="300px"><br>
+  <em>Complete Trajectory from Earth to Heliopause (120 AU) using a Jupiter flyby in GMAT</em>
 </p>
 
 ---
