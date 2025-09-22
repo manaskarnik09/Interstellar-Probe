@@ -43,12 +43,12 @@ Two trajectory families were explored:
 ---
 
 ## 📂 Repository Structure
-PyGMO results/ # Results of delta v optimization of Earth-Venus-Jupiter trajectories
-notebooks/ # Jupyter notebooks with full calculations
-gmat_scripts/ # GMAT files for trajectory validation
-results/ # Plots and trajectory data
-requirements.txt # Dependencies for Python environment
-README.md # Project overview (this file)
+|-----PyGMO results/ # Results of delta v optimization of Earth-Venus-Jupiter trajectories
+|-----notebooks/ # Jupyter notebooks with full calculations
+|-----gmat_scripts/ # GMAT files for trajectory validation
+|-----results/ # Plots and trajectory data
+|-----requirements.txt # Dependencies for Python environment
+|-----README.md # Project overview (this file)
 
 
 ---
@@ -62,8 +62,8 @@ README.md # Project overview (this file)
 
 <p align="center">
   <img src="results/Earth-Jupiter_C3_98.png" height="300px">
-  <img src="results/Earth-Jupiter_C3_90.png" height="300px">
-  <img src="results/Earth-Jupiter_C3_81.png" height="300px">
+  <img src="results/Earth-Jupiter_C3_90.png" height="500px">
+  <img src="results/Earth-Jupiter_C3_81.png" height="500px">
 </p>
 
 ---
