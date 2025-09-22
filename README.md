@@ -60,6 +60,12 @@ README.md # Project overview (this file)
   <img src="results/Earth-Jupiter_C3_133.png" height="300px">
 </p>
 
+<p align="center">
+  <img src="results/Earth-Jupiter_C3_98.png" height="300px">
+  <img src="results/Earth-Jupiter_C3_90.png" height="300px">
+  <img src="results/Earth-Jupiter_C3_82.png" height="300px">
+</p>
+
 ---
 
 ## 🚀 Future Work
