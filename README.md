@@ -76,6 +76,12 @@ Two trajectory families were explored:
 <p align = "center"> 
  <img src="results/Earth-Venus-Jupiter_patched.png"   height="500px">
 </p>
+
+** EARTH → JUPITER → HELIOPAUSE **
+<p align = "center"> 
+ <img src="results/Earth-Jupiter-Heliopause.png"   height="300px">
+</p>
+
 ---
 
 ## 🚀 Future Work
