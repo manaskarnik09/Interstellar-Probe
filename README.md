@@ -63,7 +63,7 @@ README.md # Project overview (this file)
 <p align="center">
   <img src="results/Earth-Jupiter_C3_98.png" height="300px">
   <img src="results/Earth-Jupiter_C3_90.png" height="300px">
-  <img src="results/Earth-Jupiter_C3_82.png" height="300px">
+  <img src="results/Earth-Jupiter_C3_81.png" height="300px">
 </p>
 
 ---
