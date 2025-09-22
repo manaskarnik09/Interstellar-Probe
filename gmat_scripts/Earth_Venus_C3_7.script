@@ -1,0 +1,322 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2025-06-18 15:24:13
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft TURTLE;
+GMAT TURTLE.DateFormat = UTCGregorian;
+GMAT TURTLE.Epoch = '10 May 2039 00:00:00.000';
+GMAT TURTLE.CoordinateSystem = EarthICRF;
+GMAT TURTLE.DisplayStateType = IncomingAsymptote;
+GMAT TURTLE.IncomingRadPer = 115000.4193671367;
+GMAT TURTLE.IncomingC3Energy = 7.354464632082901;
+GMAT TURTLE.IncomingRHA = 300.3499999999996;
+GMAT TURTLE.IncomingDHA = -25.85000000000013;
+GMAT TURTLE.IncomingBVAZI = 90.0000000000002;
+GMAT TURTLE.TA = 1.478779333471098e-06;
+GMAT TURTLE.DryMass = 850;
+GMAT TURTLE.Cd = 2.2;
+GMAT TURTLE.Cr = 1.8;
+GMAT TURTLE.DragArea = 15;
+GMAT TURTLE.SRPArea = 1;
+GMAT TURTLE.SPADDragScaleFactor = 1;
+GMAT TURTLE.SPADSRPScaleFactor = 1;
+GMAT TURTLE.AtmosDensityScaleFactor = 1;
+GMAT TURTLE.ExtendedMassPropertiesModel = 'None';
+GMAT TURTLE.Tanks = {MainTank};
+GMAT TURTLE.Thrusters = {ElectricThruster1};
+GMAT TURTLE.NAIFId = -10000001;
+GMAT TURTLE.NAIFIdReferenceFrame = -9000001;
+GMAT TURTLE.OrbitColor = Red;
+GMAT TURTLE.TargetColor = Teal;
+GMAT TURTLE.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+70 0 0 0 ; 0 0 0 1e+70 0 0 ; 0 0 0 0 1e+70 0 ; 0 0 0 0 0 1e+70 ];
+GMAT TURTLE.CdSigma = 1e+70;
+GMAT TURTLE.CrSigma = 1e+70;
+GMAT TURTLE.Id = 'SatId';
+GMAT TURTLE.Attitude = CoordinateSystemFixed;
+GMAT TURTLE.SPADSRPInterpolationMethod = Bilinear;
+GMAT TURTLE.SPADSRPScaleFactorSigma = 1e+70;
+GMAT TURTLE.SPADDragInterpolationMethod = Bilinear;
+GMAT TURTLE.SPADDragScaleFactorSigma = 1e+70;
+GMAT TURTLE.AtmosDensityScaleFactorSigma = 1e+70;
+GMAT TURTLE.ModelFile = 'aura.3ds';
+GMAT TURTLE.ModelOffsetX = 0;
+GMAT TURTLE.ModelOffsetY = 0;
+GMAT TURTLE.ModelOffsetZ = 0;
+GMAT TURTLE.ModelRotationX = 0;
+GMAT TURTLE.ModelRotationY = 0;
+GMAT TURTLE.ModelRotationZ = 0;
+GMAT TURTLE.ModelScale = 1;
+GMAT TURTLE.AttitudeDisplayStateType = 'Quaternion';
+GMAT TURTLE.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT TURTLE.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT TURTLE.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- Hardware Components
+%----------------------------------------
+
+Create ChemicalTank MainTank;
+GMAT MainTank.AllowNegativeFuelMass = false;
+GMAT MainTank.FuelMass = 3000;
+GMAT MainTank.Pressure = 5000;
+GMAT MainTank.Temperature = 20;
+GMAT MainTank.RefTemperature = 20;
+GMAT MainTank.Volume = 3;
+GMAT MainTank.FuelDensity = 1000;
+GMAT MainTank.PressureModel = PressureRegulated;
+
+Create ElectricThruster ElectricThruster1;
+GMAT ElectricThruster1.CoordinateSystem = Local;
+GMAT ElectricThruster1.Origin = Earth;
+GMAT ElectricThruster1.Axes = VNB;
+GMAT ElectricThruster1.ThrustDirection1 = 1.5;
+GMAT ElectricThruster1.ThrustDirection2 = 1.5;
+GMAT ElectricThruster1.ThrustDirection3 = 1.5;
+GMAT ElectricThruster1.DutyCycle = 1;
+GMAT ElectricThruster1.ThrustScaleFactor = 1;
+GMAT ElectricThruster1.DecrementMass = false;
+GMAT ElectricThruster1.GravitationalAccel = 9.81;
+GMAT ElectricThruster1.ThrustModel = ThrustMassPolynomial;
+GMAT ElectricThruster1.MaximumUsablePower = 7.266;
+GMAT ElectricThruster1.MinimumUsablePower = 0.638;
+GMAT ElectricThruster1.ThrustCoeff1 = -5.19082;
+GMAT ElectricThruster1.ThrustCoeff2 = 2.96519;
+GMAT ElectricThruster1.ThrustCoeff3 = -14.4789;
+GMAT ElectricThruster1.ThrustCoeff4 = 54.05382;
+GMAT ElectricThruster1.ThrustCoeff5 = -0.00100092;
+GMAT ElectricThruster1.MassFlowCoeff1 = -0.004776;
+GMAT ElectricThruster1.MassFlowCoeff2 = 0.05717;
+GMAT ElectricThruster1.MassFlowCoeff3 = -0.09956;
+GMAT ElectricThruster1.MassFlowCoeff4 = 0.03211;
+GMAT ElectricThruster1.MassFlowCoeff5 = 2.13781;
+GMAT ElectricThruster1.FixedEfficiency = 0.7;
+GMAT ElectricThruster1.Isp = 4200;
+GMAT ElectricThruster1.ConstantThrust = 0.237;
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel DefaultProp_ForceModel;
+GMAT DefaultProp_ForceModel.CentralBody = Sun;
+GMAT DefaultProp_ForceModel.PointMasses = {Earth, Sun, Venus};
+GMAT DefaultProp_ForceModel.Drag = None;
+GMAT DefaultProp_ForceModel.SRP = On;
+GMAT DefaultProp_ForceModel.RelativisticCorrection = Off;
+GMAT DefaultProp_ForceModel.ErrorControl = RSSStep;
+GMAT DefaultProp_ForceModel.SRP.Flux = 1367;
+GMAT DefaultProp_ForceModel.SRP.SRPModel = Spherical;
+GMAT DefaultProp_ForceModel.SRP.Nominal_Sun = 149597870.691;
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator DefaultProp;
+GMAT DefaultProp.FM = DefaultProp_ForceModel;
+GMAT DefaultProp.Type = RungeKutta89;
+GMAT DefaultProp.InitialStepSize = 60;
+GMAT DefaultProp.Accuracy = 9.999999999999999e-12;
+GMAT DefaultProp.MinStep = 0.001;
+GMAT DefaultProp.MaxStep = 2700;
+GMAT DefaultProp.MaxStepAttempts = 50;
+GMAT DefaultProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- Burns
+%----------------------------------------
+
+Create ImpulsiveBurn TCM;
+GMAT TCM.CoordinateSystem = Local;
+GMAT TCM.Origin = Earth;
+GMAT TCM.Axes = VNB;
+GMAT TCM.Element1 = 0;
+GMAT TCM.Element2 = 0;
+GMAT TCM.Element3 = 0;
+GMAT TCM.DecrementMass = true;
+GMAT TCM.Tank = {MainTank};
+GMAT TCM.Isp = 300;
+GMAT TCM.GravitationalAccel = 9.81;
+
+%----------------------------------------
+%---------- Coordinate Systems
+%----------------------------------------
+
+Create CoordinateSystem SUNMJ2000Ec;
+GMAT SUNMJ2000Ec.Origin = Sun;
+GMAT SUNMJ2000Ec.Axes = MJ2000Ec;
+
+Create CoordinateSystem VenusInertial;
+GMAT VenusInertial.Origin = Venus;
+GMAT VenusInertial.Axes = BodyInertial;
+
+Create CoordinateSystem VenusFixed;
+GMAT VenusFixed.Origin = Venus;
+GMAT VenusFixed.Axes = BodyFixed;
+
+%----------------------------------------
+%---------- Solvers
+%----------------------------------------
+
+Create DifferentialCorrector DC1;
+GMAT DC1.ShowProgress = true;
+GMAT DC1.ReportStyle = Normal;
+GMAT DC1.ReportFile = 'DifferentialCorrectorDefaultDC.data';
+GMAT DC1.MaximumIterations = 50;
+GMAT DC1.DerivativeMethod = ForwardDifference;
+GMAT DC1.Algorithm = NewtonRaphson;
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OpenFramesInterface OpenFrames1;
+GMAT OpenFrames1.SolverIterations = Current;
+GMAT OpenFrames1.UpperLeft = [ 0.02882352941176471 0.375 ];
+GMAT OpenFrames1.Size = [ 0.6752941176470588 0.5869047619047619 ];
+GMAT OpenFrames1.RelativeZOrder = 293;
+GMAT OpenFrames1.Maximized = false;
+GMAT OpenFrames1.Add = {TURTLE, Earth, Jupiter, Sun, Venus};
+GMAT OpenFrames1.View = {CoordinateSystemView1, EarthView1, JupiterView1, SunView1, VenusView1, WayfarerView1};
+GMAT OpenFrames1.CoordinateSystem = SUNMJ2000Ec;
+GMAT OpenFrames1.DrawObject = [ true true true true true ];
+GMAT OpenFrames1.DrawTrajectory = [ true true true true true ];
+GMAT OpenFrames1.DrawAxes = [ false false false false false ];
+GMAT OpenFrames1.DrawXYPlane = [ false false false false false ];
+GMAT OpenFrames1.DrawLabel = [ true true true true true ];
+GMAT OpenFrames1.DrawUsePropLabel = [ false false false false false ];
+GMAT OpenFrames1.DrawCenterPoint = [ true false false false false ];
+GMAT OpenFrames1.DrawEndPoints = [ true false false false false ];
+GMAT OpenFrames1.DrawVelocity = [ false false false false false ];
+GMAT OpenFrames1.DrawGrid = [ false false false false false ];
+GMAT OpenFrames1.DrawLineWidth = [ 2 2 2 2 2 ];
+GMAT OpenFrames1.DrawMarkerSize = [ 10 10 10 10 10 ];
+GMAT OpenFrames1.DrawFontSize = [ 14 14 14 14 14 ];
+GMAT OpenFrames1.Axes = On;
+GMAT OpenFrames1.AxesLength = 12756.2726;
+GMAT OpenFrames1.AxesLabels = On;
+GMAT OpenFrames1.FrameLabel = Off;
+GMAT OpenFrames1.XYPlane = On;
+GMAT OpenFrames1.EclipticPlane = Off;
+GMAT OpenFrames1.EnableStars = On;
+GMAT OpenFrames1.StarCatalog = 'inp_StarsHYGv3.txt';
+GMAT OpenFrames1.StarCount = 40000;
+GMAT OpenFrames1.MinStarMag = -2;
+GMAT OpenFrames1.MaxStarMag = 6;
+GMAT OpenFrames1.MinStarPixels = 1;
+GMAT OpenFrames1.MaxStarPixels = 10;
+GMAT OpenFrames1.MinStarDimRatio = 0.5;
+GMAT OpenFrames1.ShowPlot = false;
+GMAT OpenFrames1.ShowToolbar = true;
+GMAT OpenFrames1.SolverIterLastN = 1;
+GMAT OpenFrames1.ShowVR = false;
+GMAT OpenFrames1.PlaybackTimeScale = 3600;
+GMAT OpenFrames1.MultisampleAntiAliasing = On;
+GMAT OpenFrames1.MSAASamples = 2;
+GMAT OpenFrames1.DrawFontPosition = {'Top-Right', 'Top-Right', 'Top-Right', 'Top-Right', 'Top-Right'};
+
+Create OrbitView SunView;
+GMAT SunView.SolverIterations = Current;
+GMAT SunView.UpperLeft = [ 0.002352941176470588 0 ];
+GMAT SunView.Size = [ 0.8 0.85 ];
+GMAT SunView.RelativeZOrder = 295;
+GMAT SunView.Maximized = false;
+GMAT SunView.Add = {TURTLE, Earth, Venus, Sun};
+GMAT SunView.CoordinateSystem = SUNMJ2000Ec;
+GMAT SunView.DrawObject = [ true true true true ];
+GMAT SunView.DataCollectFrequency = 1;
+GMAT SunView.UpdatePlotFrequency = 50;
+GMAT SunView.NumPointsToRedraw = 0;
+GMAT SunView.ShowPlot = true;
+GMAT SunView.MaxPlotPoints = 20000;
+GMAT SunView.ShowLabels = true;
+GMAT SunView.ViewPointReference = Sun;
+GMAT SunView.ViewPointVector = [ 0 0 1490000000 ];
+GMAT SunView.ViewDirection = Sun;
+GMAT SunView.ViewScaleFactor = 1;
+GMAT SunView.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT SunView.ViewUpAxis = Z;
+GMAT SunView.EclipticPlane = Off;
+GMAT SunView.XYPlane = Off;
+GMAT SunView.WireFrame = Off;
+GMAT SunView.Axes = Off;
+GMAT SunView.Grid = Off;
+GMAT SunView.SunLine = Off;
+GMAT SunView.UseInitialView = On;
+GMAT SunView.StarCount = 7000;
+GMAT SunView.EnableStars = On;
+GMAT SunView.EnableConstellations = Off;
+
+%----------------------------------------
+%---------- User Objects
+%----------------------------------------
+
+Create OpenFramesView CoordinateSystemView1;
+GMAT CoordinateSystemView1.ViewFrame = CoordinateSystem;
+GMAT CoordinateSystemView1.ViewTrajectory = Off;
+GMAT CoordinateSystemView1.InertialFrame = Off;
+GMAT CoordinateSystemView1.SetDefaultLocation = Off;
+GMAT CoordinateSystemView1.SetCurrentLocation = On;
+GMAT CoordinateSystemView1.CurrentEye = [ 409007387.8140563 105478693.8593837 156671671.0516855 ];
+GMAT CoordinateSystemView1.CurrentCenter = [ 1.788139343261719e-07 -5.960464477539063e-07 1.251697540283203e-06 ];
+GMAT CoordinateSystemView1.CurrentUp = [ -0.3387932500156263 -0.07886465672220511 0.9375497318350305 ];
+GMAT CoordinateSystemView1.FOVy = 45;
+
+Create OpenFramesView EarthView1;
+GMAT EarthView1.ViewFrame = Earth;
+GMAT EarthView1.ViewTrajectory = Off;
+GMAT EarthView1.InertialFrame = Off;
+GMAT EarthView1.SetDefaultLocation = Off;
+GMAT EarthView1.SetCurrentLocation = Off;
+GMAT EarthView1.FOVy = 45;
+
+Create OpenFramesView JupiterView1;
+GMAT JupiterView1.ViewFrame = Jupiter;
+GMAT JupiterView1.ViewTrajectory = Off;
+GMAT JupiterView1.InertialFrame = Off;
+GMAT JupiterView1.SetDefaultLocation = Off;
+GMAT JupiterView1.SetCurrentLocation = Off;
+GMAT JupiterView1.FOVy = 45;
+
+Create OpenFramesView SunView1;
+GMAT SunView1.ViewFrame = Sun;
+GMAT SunView1.ViewTrajectory = Off;
+GMAT SunView1.InertialFrame = Off;
+GMAT SunView1.SetDefaultLocation = Off;
+GMAT SunView1.SetCurrentLocation = Off;
+GMAT SunView1.FOVy = 45;
+
+Create OpenFramesView VenusView1;
+GMAT VenusView1.ViewFrame = Venus;
+GMAT VenusView1.ViewTrajectory = Off;
+GMAT VenusView1.InertialFrame = Off;
+GMAT VenusView1.SetDefaultLocation = Off;
+GMAT VenusView1.SetCurrentLocation = Off;
+GMAT VenusView1.FOVy = 45;
+
+Create OpenFramesView WayfarerView1;
+GMAT WayfarerView1.ViewFrame = TURTLE;
+GMAT WayfarerView1.ViewTrajectory = Off;
+GMAT WayfarerView1.InertialFrame = Off;
+GMAT WayfarerView1.SetDefaultLocation = Off;
+GMAT WayfarerView1.SetCurrentLocation = On;
+GMAT WayfarerView1.CurrentEye = [ 0 -479401561.8756607 0 ];
+GMAT WayfarerView1.CurrentCenter = [ 0 0 0 ];
+GMAT WayfarerView1.CurrentUp = [ 0 0 1 ];
+GMAT WayfarerView1.FOVy = 45;
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate 'Prop 10 Days' DefaultProp(TURTLE) {TURTLE.Venus.Periapsis};
