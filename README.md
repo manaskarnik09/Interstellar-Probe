@@ -67,7 +67,7 @@ Two trajectory families were explored:
 </p>
 
 <p align = "center">
- <img src="results/Earth-Venus-Jupiter_C3_7.png"      height="400px">
+ <img src="results/Earth-Venus-Jupiter_C3_7.png"      height="450px">
  <img src="results/Earth-Venus-Jupiter_patched.png"   height="400px">
 </p>
 
