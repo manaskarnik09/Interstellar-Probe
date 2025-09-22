@@ -45,6 +45,7 @@ Two trajectory families were explored:
 ## 📂 Repository Structure
 Interstellar-Probe/
 │
+<br>
 ├── notebooks/         # Jupyter notebooks for trajectory design & analysis
 ├── scripts/           # Python scripts for Lambert arcs, flyby dynamics
 ├── results/           # Plots, output data, mission timelines
@@ -130,5 +131,5 @@ conda install pygmo plugins non_free
 conda install jupyter notebook
 conda install matplotlib
 jupyter notebook
-Open and run notebook from the /notebook folder eg: Jupiter Optimal Trajectories.ipynb
+#Open and run notebook from the /notebook folder eg: Jupiter Optimal Trajectories.ipynb
 
